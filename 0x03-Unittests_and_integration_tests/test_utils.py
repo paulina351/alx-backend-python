@@ -5,7 +5,7 @@
 """
 
 import unittest
-from parameterized import parameterized # type: ignore
+from parameterized import parameterized  # type: ignore
 from utils import access_nested_map, get_json, memoize
 from unittest.mock import patch, Mock
 
@@ -23,12 +23,12 @@ class TestAccessNestedMap(unittest.TestCase):
     @parameterized.expand([
         ({}, ("a",), "a"),
         ({"a": 1}, ("a", "b"), "b")])
-    def test_access_nested_map_exception(self, nested_map, path, expected_error):
+    def test_access_nested_map_exception(self, nested_map, path, expeted_erro):
         """A method to test the nested map"""
         with self.assertRaises(KeyError) as key_error:
             access_nested_map(nested_map, path)
             nest_exception = key_error.exception
-            self.assertEqual(expected_error, nest_exception)
+            self.assertEqual(expeted_erro, nest_exception)
 
 
 class TestGetJson(unittest.TestCase):
